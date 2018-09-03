@@ -22,3 +22,12 @@ Route::get('/aboutUs',function(){
 Route::get('/contactUs',function(){
     return view('shop.contactUs');
 })->name('contactUs');
+
+Route::get('/single',function (){
+   return view('shop.single');
+})->name('singleProduct');
+
+Route::get('/search', function(){
+   return view('shop.search');
+})->name('search');
+

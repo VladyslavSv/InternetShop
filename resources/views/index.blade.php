@@ -23,14 +23,13 @@
                                     for($i=0;$i<5;$i++)
                                     {
                                         ?>
-                                        <div class="item {{-- ($i==0)?'active':''--}}">
+                                        <div class="item {{($i==0)?'active':''}}">
                                             <img src="{{asset('img\Laptop.png')}}" alt="">
                                             <div class="carousel-caption">
                                                 <p>Picture</p>
                                             </div>
                                         </div>
                                 <?php
-
                                     }
                                 ?>
                             </div>
