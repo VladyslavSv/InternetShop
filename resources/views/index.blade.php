@@ -19,19 +19,14 @@
                             </ol>
                             <!--Слайды-->
                             <div class="carousel-inner">
-                                <?php
-                                    for($i=0;$i<5;$i++)
-                                    {
-                                        ?>
+                            @for($i = 0; $i < 5; $i++)
                                         <div class="item {{($i==0)?'active':''}}">
                                             <img src="{{asset('img\Laptop.png')}}" alt="">
                                             <div class="carousel-caption">
                                                 <p>Picture</p>
                                             </div>
                                         </div>
-                                <?php
-                                    }
-                                ?>
+                            @endfor
                             </div>
                             <!--Стрелки переклюяения сайдов-->
                             <a href="#carousel" class="left carousel-control" data-slide="prev">
@@ -46,82 +41,10 @@
                 </div>
             </div>
             <!--Most popular-->
-            <div class="container-fluid pane-with-products">
-                <h4 class="category-name-on-main"><a href="#">Most popular</a></h4>
-                <?php
-                       for($i=0;$i<4;$i++)
-                        {
-                        ?>
-                        <div class="col-lg-3 col-md-3 col-xs-6">
-                            <div class="product_item product_item_base">
-                               <a href="#">
-                                <div class="img-div">
-                                        <img src="" alt="" class="product-img">
-                                </div>
-                                </a>
-                                <div>
-                                    <p class="product-name-link"><a href="#">Name</a></p>
-                                    <p class="item_price">1000</p>
-                                    <p class="btn_buy"><a href="#">Buy</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                <p class="more"><a href="#">more... <i class="glyphicon glyphicon-menu-right"></i></a></p>
-            </div>
+            @include('shop.productLine',['products_header' => 'Most popular', 'products' => $most_popular_products])
             <!--Most expensive-->
-            <div class="container-fluid pane-with-products">
-                <h4 class="category-name-on-main"><a href="#">Most expensive</a></h4>
-                <?php
-                       for($i=0;$i<4;$i++)
-                        {
-                        ?>
-                        <div class="col-lg-3 col-md-3 col-xs-6">
-                            <div class=" product_item product_item_base ">
-                                <a href="#">
-                                    <div class="img-div">               
-                                        <img src="#" alt="" class="product-img">
-                                    </div>
-                                </a>
-                                <div>
-                                    <p class="product-name-link"><a href="#">Name</a></p>
-                                    <p class="item_price">1000</p>
-                                    <p class="btn_buy"><a href="#">Buy</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                <p class="more"><a href="#">more... <i class="glyphicon glyphicon-menu-right"></i></a></p>
-            </div>
+            @include('shop.productLine',['products_header' => 'Most expensive', 'products' => $most_expensive_products])
             <!--The cheapest-->
-            <div class="container-fluid pane-with-products">
-                <h4 class="category-name-on-main"><a href="#">Most cheap</a></h4>
-                <?php
-                       for($i=0;$i<4;$i++)
-                        {
-                        ?>
-                        <div class="col-lg-3 col-md-3 col-xs-6">
-                            <div class="product_item product_item_base">
-                               <a href="#">
-                                <div class="img-div">
-                                        <img src="#" alt="" class="product-img">
-                                </div>
-                                </a>
-                                <div>
-                                    <p class="product-name-link"><a href="#">Name</a></p>
-                                    <p class="item_price">1000</p>
-                                    <p class="btn_buy"><a href="#">Buy</a></p>
-                                </div>
-                            </div>
-                        </div>
-                        <?php
-                        }
-                        ?>
-                <p class="more"><a href="#">more...<i class="glyphicon glyphicon-menu-right"></i></a></p>
-            </div>
+            @include('shop.productLine',['products_header' => 'The cheapest', 'products' => $the_cheapest_products])
         </div>
 @endsection

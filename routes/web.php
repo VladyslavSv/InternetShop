@@ -1,5 +1,6 @@
 <?php
-
+use \App\Http\Controllers\ProductController;
+use \App\Product;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,7 +13,15 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    $most_popular_products = Product::orderBy( 'views', 'DESC' )->take(4)->get();
+    $most_expensive_products = Product::orderBy( 'price', 'DESC' )->take(4)->get();
+    $the_cheapest_products = Product::orderBy( 'price', 'ASC' )->take(4)->get();
+
+    return view('index', [
+        'most_popular_products' => $most_popular_products,
+        'most_expensive_products' => $most_expensive_products,
+        'the_cheapest_products' => $the_cheapest_products,
+        ]);
 })->name('index');
 
 Route::get('/aboutUs',function(){
@@ -30,4 +39,12 @@ Route::get('/single',function (){
 Route::get('/search', function(){
    return view('shop.search');
 })->name('search');
+
+Route::get('/test',function(){
+    $product = \App\Product::find(1);
+
+    dd($product->name);
+
+    $product->save();
+});
 
